@@ -16,7 +16,6 @@ reference = {
 def takefirst(elem):
   return elem[0]
 
-
 # returns tuple of tuples((first,digit),(last,digit))
 # internal tuple is (location, corresponding digit)
 def findwords(dictionary, line):
@@ -37,7 +36,6 @@ def findwords(dictionary, line):
 for line in sys.stdin:
   line = line.strip()
   length = len(line)
-  print(line)
   firstref, lastref = findwords(reference, line)
   i = 0
   first = False
@@ -49,7 +47,6 @@ for line in sys.stdin:
       else:
         num = int(line[i])
       sum += num*10
-      print(num*10)
       first = True
     if (line[length-1-i].isnumeric() and not last):
       if (lastref != -1 and lastref[0] > (length-1-i)):
@@ -57,9 +54,7 @@ for line in sys.stdin:
       else:
         num = int(line[length-1-i])
       sum += num
-      print(num)
       last = True
     i+=1
-  print("------")
 
 print(sum)
